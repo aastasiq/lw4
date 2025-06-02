@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import { Box, Button, Container, Paper, TextField } from "@mui/material";
 import { useState } from "react";
 import { encryptFieldStyle } from "@/styles/encryptField.style";
+import Title from '@/pages/components/Title'
 const AesEncryption = require('aes-encryption')
 
 const aes = new AesEncryption()
@@ -65,6 +66,7 @@ export default function Home() {
             gap: "20px"
           }}
         >
+					<Title />
           <Box>
             <TextField
               id="outlined-multiline-static"
@@ -78,7 +80,7 @@ export default function Home() {
               error={error} // Set error prop for visual indication (optional)
               helperText={error ? 'Maximum 150 characters allowed' : ''}
             />
-            <Button 
+            <Button
               color="secondary"
               onClick={handleEncrypt}
               disabled={!encryptFieldText}
@@ -104,14 +106,14 @@ export default function Home() {
               {encrypted}
             </Paper>
             <Box>
-                <Button 
+                <Button
                 color="secondary"
                 onClick={handleDecrypt}
                 disabled={!encrypted || isDecrypted}
                 >
                   Decrypt
                 </Button>
-                <Button 
+                <Button
                 color="secondary"
                 onClick={handleClear}
                 >
@@ -119,9 +121,9 @@ export default function Home() {
                 </Button>
               </Box>
           </Box>
-        
+
         </Container>
-     
+
       </main>
     </>
   );
